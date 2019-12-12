@@ -1,0 +1,21 @@
+body{
+    font-family: 'Roboto Mono', monospace;
+}
+
+.title400 {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 
+    /* font-famly: 'Poppins', sans-serif; */
+}
+
+.title600 {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    /* font-family: 'Poppins', sans-serif; */
+}
+
+.title800 {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800;
+    /* font-family: 'Poppins', sans-serif; */
+}

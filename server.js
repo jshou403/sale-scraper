@@ -38,7 +38,7 @@ var htmlrouter = require("./controller/htmlroutes");
 
 app.use(htmlrouter);
 
-// Connect to the Mongo DB
+// Connect to the Mongo DB and creates/sets up database
 mongoose.connect("mongodb://localhost/sale-scraper", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Start the server

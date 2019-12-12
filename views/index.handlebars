@@ -1,5 +1,21 @@
-<h1>Landing page</h1>
+<h1 class="">The Sale Scraper</h1>
 
-{{#each items}}
-    <h3>{{item_brand}} - {{item_name}}</h3>
-{{/each}}
+<div class="container">
+
+    <div class="row">
+
+        {{#each items}}
+        <div class="col-sm-12 col-md-6 col-lg-4">
+        <h4>{{item_brand}}</h4>
+        <h3>{{item_name}}</h3>
+        <h5>Sale Price: ${{sale_price}}</h5>
+        <a href="{{item_link}}">{{item_link}}</a>
+        <br />
+        <img class="img-fluid" src="{{image_url}}" alt="{{item_brand}} - {{item_name}}">
+        <br />
+        </div>
+        {{/each}}
+
+    </div>
+
+</div>
