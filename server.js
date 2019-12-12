@@ -23,6 +23,17 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
+// Set Handlebars
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Import routes to give server access
+var router = require("./controller/apiroutes");
+
+app.use(router);
+
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/sale-scraper", { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -30,4 +41,5 @@ mongoose.connect("mongodb://localhost/sale-scraper", { useNewUrlParser: true, us
 app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");
   });
-  
+
+module.exports = app;
