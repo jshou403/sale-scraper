@@ -30,9 +30,13 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes to give server access
-var router = require("./controller/apiroutes");
+var apirouter = require("./controller/apiroutes");
 
-app.use(router);
+app.use(apirouter);
+
+var htmlrouter = require("./controller/htmlroutes");
+
+app.use(htmlrouter);
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/sale-scraper", { useNewUrlParser: true, useUnifiedTopology: true });

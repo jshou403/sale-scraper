@@ -3,7 +3,7 @@ var db = require("../models");
 // Import express package
 var express = require("express");
 // Import express router 
-var router = express.Router();
+var apirouter = express.Router();
 
 var axios = require("axios");
 var cheerio = require("cheerio");
@@ -13,21 +13,8 @@ var cheerio = require("cheerio");
 
 // Routes
 
-// Main route 
-router.get("/", function (req, res) {
-  console.log("Hello world");
-  db.Item.find({ saved: false }).then(function (data) {
-    var hbsObject = {
-      items: data
-    }
-    //     console.log(data);
-    res.render("index", hbsObject);
-  });
-
-});
-
 // A GET route for scraping website
-router.get("/scrape", function (req, res) {
+apirouter.get("/scrape", function (req, res) {
   // First, we grab the body of the html with axios
   axios.get("https://needsupply.com/life/sale?lang=en_US&srule=newest&start=0&sz=48").then(function (response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -74,4 +61,4 @@ router.get("/scrape", function (req, res) {
   });
 });
 
-module.exports = router;
+module.exports = apirouter;
