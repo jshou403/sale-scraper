@@ -5,20 +5,24 @@ var Schema = mongoose.Schema;
 
 // New ItemsSchema object using Schema constructor
 var ItemSchema = new Schema({
+    item_brand: {
+        type: String,
+        required: true
+    },
     item_name: {
         type: String,
+        required: true
+    },
+    sale_price: {
+        type: Number,
         required: true
     },
     image_url: {
         type: String,
         required: true
     },
-    link: {
+    item_link: {
         type: String,
-        required: true
-    },
-    sale_price: {
-        type: Number,
         required: true
     },
     // `note` is an object that stores a Note id
