@@ -23,7 +23,12 @@ var ItemSchema = new Schema({
     },
     item_link: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+    },
+    saved: {
+        type: Boolean,
+        default: false
     },
     // `note` is an object that stores a Note id
     // The ref property links the ObjectId to the Note model

@@ -16,13 +16,13 @@ var cheerio = require("cheerio");
 // Main route 
 router.get("/", function (req, res) {
   console.log("Hello world");
-  res.send("Hello world!!!")
-  // db.Item.find({}) 
-  //   .then(function (data) {
-
-  //     console.log(data);
-  //     res.json(data);
-  //   });
+  db.Item.find({ saved: false }).then(function (data) {
+    var hbsObject = {
+      items: data
+    }
+    //     console.log(data);
+    res.render("index", hbsObject);
+  });
 
 });
 
@@ -38,17 +38,13 @@ router.get("/scrape", function (req, res) {
       // Save an empty result object
       var result = {};
 
-      result.item_brand = $(element).attr("data-brand"); 
-
+      result.item_brand = $(element).attr("data-brand");
       result.item_name = $(element).attr("data-name");
-
       result.sale_price = $(element).attr("data-price");
-
       result.image_url = $(element)
-      .children().find("img").attr("data-src");
-
+        .children().find("img").attr("data-src");
       result.item_link = "https://needsupply.com" + $(element)
-      .children().eq(1).find("a").attr("href");
+        .children().eq(1).find("a").attr("href");
 
       // Add the text and href of every link, and save them as properties of the result object
       // result.title = $(this)
@@ -65,11 +61,11 @@ router.get("/scrape", function (req, res) {
       db.Item.create(result)
         .then(function (dbItem) {
           // View the added result in the console
-          // console.log(dbItem);
+          console.log(dbItem);
         })
         .catch(function (err) {
           // If an error occurred, log it
-          // console.log(err);
+          console.log(err);
         });
     });
 
