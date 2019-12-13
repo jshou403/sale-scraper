@@ -1,4 +1,19 @@
-<h1 class="">The Sale Scraper</h1>
+<div class="row" id="nav-bar">
+    <div class="col-sm-12 col-md-8">
+        <h1 class="title600">The Sale Scraper</h1>
+    </div>
+    <div class="col-sm-12 col-md-4 text-right">
+        <a href="/scrape">
+            <h4>New Scrape</h4>
+        </a>
+        <a href="/saved">
+            <h4>Saved Items</h4>
+        </a>
+        <a href="/clear">
+            <h4>Clear All</h4>
+        </a>
+    </div>
+</div>
 
 <div class="container">
 
@@ -6,13 +21,19 @@
 
         {{#each items}}
         <div class="col-sm-12 col-md-6 col-lg-4">
-        <h4>{{item_brand}}</h4>
-        <h3>{{item_name}}</h3>
-        <h5>Sale Price: ${{sale_price}}</h5>
-        <a href="{{item_link}}">{{item_link}}</a>
-        <br />
-        <img class="img-fluid" src="{{image_url}}" alt="{{item_brand}} - {{item_name}}">
-        <br />
+            <img class="item-image img-fluid" src="{{image_url}}" alt="{{item_brand}} - {{item_name}}">
+            <br />
+            <div class="item-text-container">
+                <h5>{{item_brand}}</h5>
+                <h4>{{item_name}}</h4>
+                <h5>Sale: ${{sale_price}}</h5>
+                {{!-- <a href="{{item_link}}" target="_blank">Shop</a> --}}
+                <br />
+                <div class="row">
+                    <div class="col-sm-12 col-md-6"><a href="{{item_link}}" target="_blank">Shop</a></div>
+                    <div class="col-sm-12 col-md-6 text-right"><a href="{{item_link}}" class="save_item">Save</a></div>
+                </div>
+            </div>
         </div>
         {{/each}}
 

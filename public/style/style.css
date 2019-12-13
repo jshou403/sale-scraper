@@ -1,16 +1,25 @@
 body{
     font-family: 'Roboto Mono', monospace;
+    background-color: linen;
+}
+
+a {
+    color: seagreen !important;
+}
+
+#nav-bar{
+    background-color: khaki;
 }
 
 .title400 {
     font-family: 'Heebo', sans-serif;
-    font-weight: 
+    font-weight: 400;
     /* font-famly: 'Poppins', sans-serif; */
 }
 
 .title600 {
     font-family: 'Heebo', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     /* font-family: 'Poppins', sans-serif; */
 }
 
@@ -18,4 +27,21 @@ body{
     font-family: 'Heebo', sans-serif;
     font-weight: 800;
     /* font-family: 'Poppins', sans-serif; */
+}
+
+/* .item-image {
+    position: fixed;
+}
+
+.item-save-icon {
+    position: relative;
+} */
+
+.item-text-container {
+    background-color: khaki;
+    margin-bottom: 2rem;
+}
+
+#footer {
+    background-color: white;
 }
