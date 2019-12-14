@@ -13,7 +13,8 @@ var cheerio = require("cheerio");
 
 // Routes
 
-// A GET route for scraping website
+// A GET route for scraping the shopping website
+// Then sending the scrape results back to the front end GET request 
 apirouter.get("/scrape", function (req, res) {
   console.log("Scraping...");
   // First, we grab the body of the html with axios
@@ -37,7 +38,7 @@ apirouter.get("/scrape", function (req, res) {
       console.log("\n" + i);
       console.log(result);
 
-      // Create a new Article using the `result` object built from scraping
+      // Create a new Item in Mongo database using the `result` object built from scraping
       db.Item.create(result)
         .then(function (dbItem) {
           // View the added result in the console
@@ -54,9 +55,17 @@ apirouter.get("/scrape", function (req, res) {
   });
 });
 
+// A DELETE route for clearing the database
 apirouter.delete("/clear", function (req, res){
   db.Item.remove({}, function (result) {
     res.send("Database cleared.")
+  })
+});
+
+// An UPDATE route for saving items - Update save to true 
+apirouter.put("/save_item/:id", function (req, res) {
+  db.Item.update({ _id: req.params.id}, {$set: { saved: true }}, function (result) {
+    res.send("Item saved.")
   })
 });
 

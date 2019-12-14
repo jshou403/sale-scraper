@@ -27,7 +27,6 @@ htmlrouter.get("/", function (req, res) {
 
 // Saved route - Finds all saved Items /saved route
 htmlrouter.get("/saved", function (req, res) {
-    console.log("Hello world");
     db.Item.find({ saved: true }).then(function (data) {
       var hbsObject = {
         items: data
