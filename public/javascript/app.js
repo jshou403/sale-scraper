@@ -17,7 +17,7 @@ $(function () {
         var item_id = $(this).attr("data-id");
         console.log("Save item button clicked.");
         console.log("Saved Item ID: " + item_id);
-        $.ajax("/saved_item/" + item_id, {
+        $.ajax("/save_item/" + item_id, {
             type: "PUT",
             data: { saved: true },
         }).then(function () {
