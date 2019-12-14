@@ -15,6 +15,7 @@ var cheerio = require("cheerio");
 
 // A GET route for scraping website
 apirouter.get("/scrape", function (req, res) {
+  console.log("Scraping...");
   // First, we grab the body of the html with axios
   axios.get("https://needsupply.com/life/sale?lang=en_US&srule=newest&start=0&sz=48").then(function (response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -32,14 +33,6 @@ apirouter.get("/scrape", function (req, res) {
         .children().find("img").attr("data-src");
       result.item_link = "https://needsupply.com" + $(element)
         .children().eq(1).find("a").attr("href");
-
-      // Add the text and href of every link, and save them as properties of the result object
-      // result.title = $(this)
-      //   .children("a")
-      //   .text();
-      // result.link = $(this)
-      //   .children("a")
-      //   .attr("href");
 
       console.log("\n" + i);
       console.log(result);

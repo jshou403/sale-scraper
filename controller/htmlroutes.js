@@ -15,7 +15,6 @@ var cheerio = require("cheerio");
 
 // Main route - Finds all Items not saved to front page
 htmlrouter.get("/", function (req, res) {
-  console.log("Hello world");
   db.Item.find({ saved: false }).then(function (data) {
     var hbsObject = {
       items: data
