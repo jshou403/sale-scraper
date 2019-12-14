@@ -54,4 +54,10 @@ apirouter.get("/scrape", function (req, res) {
   });
 });
 
+apirouter.delete("/clear", function (req, res){
+  db.Item.remove({}, function (result) {
+    res.send("Database cleared.")
+  })
+});
+
 module.exports = apirouter;

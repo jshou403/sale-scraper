@@ -5,9 +5,9 @@ $(function () {
         event.preventDefault();
         console.log("Scrape button clicked.")
         $.ajax("/scrape", {
-            type: "GET",
+            type: "GET"
         }).then(function () {
-            location.reload()
+            location.reload();
         });
     });
 
@@ -16,11 +16,23 @@ $(function () {
         event.preventDefault();
         console.log("Save item button clicked.")
         $.ajax("/save_item", {
-            type: "GET",
+            type: "GET"
         }).then(function () {
-            location.reload()
+            location.reload();
         });
     });
+
+    // index page and saved paged - clear all items 
+    $("#clear").on("click", function(event) {
+        event.preventDefault();
+        console.log("Clear all button clicked.")
+        $.ajax("/clear", {
+            type: "DELETE"
+        }). then (function(){
+            location.reload();
+        })
+    });
+
 
     // saved page click functions
     $(".delete-item").on("click", function () {
