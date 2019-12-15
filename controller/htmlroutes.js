@@ -32,7 +32,7 @@ htmlrouter.get("/saved", function (req, res) {
         items: data
       }
       //     console.log(data);
-      res.render("index", hbsObject);
+      res.render("saved", hbsObject);
     });
   
   });

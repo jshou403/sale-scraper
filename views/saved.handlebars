@@ -29,19 +29,41 @@
                 <h5>{{item_brand}}</h5>
                 <h4>{{item_name}}</h4>
                 <h5>Sale: ${{sale_price}}</h5>
-                {{!-- <a href="{{item_link}}" target="_blank">Shop</a> --}}
-                <br />
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 text-right">
+                        <button type="button" class="item-notes" data-id="{{_id}}">Item Notes</button>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-sm-12 col-md-6"><a href="{{item_link}}" target="_blank">Shop</a></div>
 
-                    {{!-- {{#if @item-options}}
-                        {{> item-options/options saved}}
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <button type="button" class="remove-item" data-id="{{_id}}">Remove Item</button>
+                    </div>
+                </div>
+
+                {{!-- <div class="row"> --}}
+
+                    {{!-- <div class="col-sm-12 col-md-6"><a href="{{item_link}}" target="_blank">Shop</a></div> --}}
+
+                    {{!-- Partial --}}
+                    {{!-- {{#each options}}
+                    {{#if saved}}
+                    {{> item-options/options saved=true}}
+                    {{/if}}
+                    {{/each}}
+                    </div> --}}
+
+                    {{!-- Partial Alternative --}}
+                    {{!-- <div class="col-sm-12 col-md-6 text-right">
+                    {{#if @item-options}}
+                    {{> item-options/options saved=true}}
                     {{/if}} --}}
 
-                    <div class="col-sm-12 col-md-6 text-right"><button type="button" class="item-notes" data-id="{{_id}}">Item Notes</button></div>
-                    <div class="col-sm-12 col-md-6 text-right"><button type="button" class="remove-item" data-id="{{_id}}">Remove Item</button></div>
-                    
-                </div>
+                {{!-- </div> --}}
+
             </div>
         </div>
         {{/each}}

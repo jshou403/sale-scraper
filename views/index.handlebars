@@ -29,16 +29,25 @@
                 <h5>{{item_brand}}</h5>
                 <h4>{{item_name}}</h4>
                 <h5>Sale: ${{sale_price}}</h5>
-                {{!-- <a href="{{item_link}}" target="_blank">Shop</a> --}}
                 <br />
+                
                 <div class="row">
                     <div class="col-sm-12 col-md-6"><a href="{{item_link}}" target="_blank">Shop</a></div>
 
+                    {{!-- Partial --}}
+                    {{!-- {{#each options}}
+                    {{#unless saved}}
+                    {{> item-options/options saved=false}}
+                    {{/unless}}
+                    {{/each}} --}}
+
+                    {{!-- Partial Alternative --}}
                     {{!-- {{#unless @item-options}}
                     {{> item-options/options saved=false}}
                     {{/unless}} --}}
 
-                    <div class="col-sm-12 col-md-6 text-right"><button type="button" class="save-item" data-id="{{_id}}">Save</button></div>
+                    <div class="col-sm-12 col-md-6 text-right"><button type="button" class="save-item"
+                            data-id="{{_id}}">Save</button></div>
 
                 </div>
             </div>
