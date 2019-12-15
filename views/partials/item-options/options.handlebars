@@ -1,0 +1,8 @@
+{{#if saved}}
+{{!-- Display These 2 Options: --}}
+<div class="col-sm-12 col-md-6 text-right"><button type="button" class="item-notes" data-id="{{_id}}">Item Notes</button></div>
+<div class="col-sm-12 col-md-6 text-right"><button type="button" class="remove-item" data-id="{{_id}}">Remove Item</button></div>
+{{else}}
+{{!-- Display Save Option: --}}
+<div class="col-sm-12 col-md-6 text-right"><button type="button" class="save-item" data-id="{{_id}}">Save</button></div>
+{{/if}}

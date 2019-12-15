@@ -37,20 +37,23 @@ $(function () {
     });
 
     // saved page click functions
-    $(".delete-item").on("click", function () {
-
+    $(".remove-item").on("click", function (event) {
+        event.preventDefault();
+        console.log("Remove item button clicked.");
     });
 
-    $(".view-note").on("click", function () {
-
+    $(".item-notes").on("click", function (event) {
+        event.preventDefault();
+        console.log("Item notes button clicked.");
+        // Ajax call to trigger the notes/comment section to show up below for the item
     });
 
     $(".add-note").on("submit", function (event) {
         event.preventDefault();
     });
 
-    $(".delete-note").on("click", function () {
-
+    $(".delete-note").on("click", function (event) {
+        event.preventDefault();
     });
 
 });

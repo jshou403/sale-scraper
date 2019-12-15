@@ -33,8 +33,14 @@
                 <br />
                 <div class="row">
                     <div class="col-sm-12 col-md-6"><a href="{{item_link}}" target="_blank">Shop</a></div>
-                    <div class="col-sm-12 col-md-6 text-right"><button type="button" class="save-item"
-                            data-id="{{_id}}">Save</button></div>
+
+                    {{!-- {{#if @item-options}}
+                        {{> item-options/options saved}}
+                    {{/if}} --}}
+
+                    <div class="col-sm-12 col-md-6 text-right"><button type="button" class="item-notes" data-id="{{_id}}">Item Notes</button></div>
+                    <div class="col-sm-12 col-md-6 text-right"><button type="button" class="remove-item" data-id="{{_id}}">Remove Item</button></div>
+                    
                 </div>
             </div>
         </div>
