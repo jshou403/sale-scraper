@@ -41,6 +41,12 @@ app.use(htmlrouter);
 // Connect to the Mongo DB and creates/sets up database
 mongoose.connect("mongodb://localhost/sale-scraper", { useNewUrlParser: true, useUnifiedTopology: true });
 
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/sale-scraper";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.set('useCreateIndex', true);
+
 // Start the server
 app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");
