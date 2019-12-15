@@ -37,9 +37,28 @@ $(function () {
     });
 
     // saved page click functions
+
+    $("#clear-saved").on("click", function(event) {
+        event.preventDefault();
+        console.log("Clear all button clicked.");
+        $.ajax("/clear_saved", {
+            type: "DELETE"
+        }). then (function () {
+            location.reload();
+        })
+    });
+
     $(".remove-item").on("click", function (event) {
         event.preventDefault();
+        var item_id = $(this).attr("data-id");
         console.log("Remove item button clicked.");
+        console.log("Unsaved Item ID: " + item_id);
+        $.ajax("/unsave_item/" + item_id, {
+            type: "PUT",
+            data: { saved: false },
+        }).then(function () {
+            location.reload();
+        });
     });
 
     $(".item-notes").on("click", function (event) {
