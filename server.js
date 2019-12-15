@@ -39,9 +39,7 @@ var htmlrouter = require("./controller/htmlroutes");
 app.use(htmlrouter);
 
 // Connect to the Mongo DB and creates/sets up database
-mongoose.connect("mongodb://localhost/sale-scraper", { useNewUrlParser: true, useUnifiedTopology: true });
-
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/sale-scraper";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_l9zt8pml:c91s75eendao0b97lbmq4sv70i@ds353358.mlab.com:53358/heroku_l9zt8pml";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
