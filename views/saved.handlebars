@@ -9,7 +9,7 @@
         </a>
         </br>
         <button type="button" id="clear-saved">
-            Clear All Saved
+            Delete All Saved
         </button>
     </div>
 </div>
@@ -29,7 +29,8 @@
 
                 <div class="row">
                     <div class="col-sm-12 col-md-12 text-right">
-                        <button type="button" class="item-notes" data-id="{{_id}}">Item Notes</button>
+                        <button type="button" class="delete-item" data-id="{{_id}}">Delete</button>
+                        <button type="button" class="remove-item" data-id="{{_id}}">Unsave</button>
                     </div>
                 </div>
 
@@ -37,7 +38,7 @@
                     <div class="col-sm-12 col-md-6"><a href="{{item_link}}" target="_blank">Shop</a></div>
 
                     <div class="col-sm-12 col-md-6 text-right">
-                        <button type="button" class="remove-item" data-id="{{_id}}">Remove Item</button>
+                        <button type="button" class="item-notes" data-id="{{_id}}">Item Notes</button>
                     </div>
                 </div>
 

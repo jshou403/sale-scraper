@@ -55,27 +55,36 @@ apirouter.get("/scrape", function (req, res) {
   });
 });
 
-// A DELETE route for clearing the database
+// A DELETE route to REMOVE unsaved items from database
 apirouter.delete("/clear", function (req, res){
   db.Item.remove({ saved: false }, function (result) {
     res.send("Database cleared.")
   })
 });
 
-// A DELETE route for deleting saved items from database
+// A DELETE route to REMOVE saved items from database
 apirouter.delete("/clear_saved", function (req, res){
   db.Item.remove({ saved: true }, function (result) {
     res.send("Database cleared.")
   })
 });
 
+// A DELETE route to REMOVE specific saved item from database
+apirouter.delete("/delete_item/:id", function (req, res){
+  db.Item.remove({ _id: req.params.id}, function (result) {
+    res.send("Item deleted.")
+  })
+});
+
 // An UPDATE route for saving items - Update save to true 
+// A PUT route to UPDATE item status to saved
 apirouter.put("/save_item/:id", function (req, res) {
   db.Item.update({ _id: req.params.id}, {$set: { saved: true }}, function (result) {
     res.send("Item saved.")
   })
 });
 
+// A PUT route to UPDATE item status to unsaved
 apirouter.put("/unsave_item/:id", function (req, res) {
   db.Item.update({ _id: req.params.id}, {$set: { saved: false }}, function (result) {
     res.send("Item unsaved.")

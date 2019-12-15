@@ -48,6 +48,18 @@ $(function () {
         })
     });
 
+    $(".delete-item").on("click", function(event) {
+        event.preventDefault();
+        var item_id = $(this).attr("data-id");
+        console.log("Delete item button clicked");
+        console.log("Deleting Item ID: " + item_id);
+        $.ajax("/delete_item/" + item_id , {
+            type: "DELETE"
+        }). then (function () {
+            location.reload();
+        })
+    });
+
     $(".remove-item").on("click", function (event) {
         event.preventDefault();
         var item_id = $(this).attr("data-id");
