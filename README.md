@@ -23,6 +23,6 @@ This full stack application uses the [Cheerio] node package to scrape a website 
 
 ## Developer
 Jacalyn Shou 
-* [Github](https://jshou403.github.io/)
-* [LinkedIn](https://www.linkedin.com/in/jacalyn-shou/)
 * [Portfolio](http://www.jacalynshou.com/)
+* [Github](https://github.com/jshou403)
+* [LinkedIn](https://www.linkedin.com/in/jacalyn-shou/)
